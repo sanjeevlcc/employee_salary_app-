@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">Employee Records</h1>
+        
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Education Level</th>
+                        <th>Job Title</th>
+                        <th>Years of Experience</th>
+                        <th>Salary</th>
+                        <th>Date Added</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for employee in employees %}
+                    <tr>
+                        <td>{{ employee['id'] }}</td>
+                        <td>{{ employee['age'] }}</td>
+                        <td>{{ employee['gender'] }}</td>
+                        <td>{{ employee['education_level'] }}</td>
+                        <td>{{ employee['job_title'] }}</td>
+                        <td>{{ employee['years_of_experience'] }}</td>
+                        <td>${{ employee['salary'] }}</td>
+                        <td>{{ employee['created_at'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+            <a href="{{ url_for('index') }}" class="btn btn-primary">Make New Prediction</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
