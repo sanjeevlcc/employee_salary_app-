@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="text-center mb-4">Salary Analysis Dashboard</h1>
+        
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Salary Distribution</h5>
+                    </div>
+                    <div class="card-body">
+                        <img src="{{ plots.salary_dist }}" class="img-fluid" alt="Salary Distribution">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Average Salary by Education Level</h5>
+                    </div>
+                    <div class="card-body">
+                        <img src="{{ plots.salary_by_edu }}" class="img-fluid" alt="Salary by Education">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Average Salary by Job Title</h5>
+                    </div>
+                    <div class="card-body">
+                        <img src="{{ plots.salary_by_job }}" class="img-fluid" alt="Salary by Job Title">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Salary vs Years of Experience</h5>
+                    </div>
+                    <div class="card-body">
+                        <img src="{{ plots.salary_vs_exp }}" class="img-fluid" alt="Salary vs Experience">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
