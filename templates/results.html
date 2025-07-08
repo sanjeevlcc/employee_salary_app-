@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h5>Salary Prediction Result</h5>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <h4 class="alert-heading">Predicted Salary</h4>
+                    <p class="mb-0">${{ predicted_salary }}</p>
+                </div>
+                
+                <h5 class="mt-4">Employee Details:</h5>
+                <ul class="list-group mb-4">
+                    <li class="list-group-item"><strong>Age:</strong> {{ age }}</li>
+                    <li class="list-group-item"><strong>Gender:</strong> {{ gender }}</li>
+                    <li class="list-group-item"><strong>Education Level:</strong> {{ education_level }}</li>
+                    <li class="list-group-item"><strong>Job Title:</strong> {{ job_title }}</li>
+                    <li class="list-group-item"><strong>Years of Experience:</strong> {{ years_of_experience }}</li>
+                </ul>
+                
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a href="{{ url_for('index') }}" class="btn btn-primary">Make Another Prediction</a>
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">View Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
