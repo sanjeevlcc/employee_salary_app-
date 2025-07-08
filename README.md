@@ -11,6 +11,40 @@ Salary prediction functionality
 Data visualization and analysis tools
 
 
+
+
+## 🗃️ Database Design (SQL)
+
+The application uses a simple relational database schema to store employee data and their salary predictions.
+
+
+
+```sql
+-- Database: employee_salary
+
+CREATE TABLE employees (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    age FLOAT,
+    gender VARCHAR(10),
+    education_level VARCHAR(50),
+    job_title VARCHAR(100),
+    years_of_experience FLOAT,
+    salary FLOAT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE predictions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    employee_id INT,
+    predicted_salary FLOAT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (employee_id) REFERENCES employees(id)
+);
+```
+
+
+
+
 # 🧑‍💼 Employee Salary Prediction App
 
 A Flask-based web application to predict employee salaries, view all employees, and visualize data through an interactive dashboard.
