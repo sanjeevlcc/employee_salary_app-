@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h1 class="text-center mb-4">Employee Salary Prediction</h1>
+        
+        <div class="card">
+            <div class="card-header">
+                <h5>Enter Employee Details</h5>
+            </div>
+            <div class="card-body">
+                <form action="{{ url_for('predict') }}" method="POST">
+                    <div class="mb-3">
+                        <label for="age" class="form-label">Age</label>
+                        <input type="number" class="form-control" id="age" name="age" required min="18" max="70">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="gender" class="form-label">Gender</label>
+                        <select class="form-select" id="gender" name="gender" required>
+                            <option value="" selected disabled>Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="education_level" class="form-label">Education Level</label>
+                        <select class="form-select" id="education_level" name="education_level" required>
+                            <option value="" selected disabled>Select Education Level</option>
+                            <option value="High School">High School</option>
+                            <option value="Bachelor's">Bachelor's</option>
+                            <option value="Master's">Master's</option>
+                            <option value="PhD">PhD</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="job_title" class="form-label">Job Title</label>
+                        <input type="text" class="form-control" id="job_title" name="job_title" required 
+                               placeholder="e.g., Software Engineer, Data Analyst">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="years_of_experience" class="form-label">Years of Experience</label>
+                        <input type="number" class="form-control" id="years_of_experience" 
+                               name="years_of_experience" required min="0" max="50">
+                    </div>
+                    
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Predict Salary</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
